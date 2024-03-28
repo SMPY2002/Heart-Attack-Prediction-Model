@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heart-Attack Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" height="40" fill="currentColor" class="bi bi-balloon-heart-fill"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386" />
+                </svg>
+                <span class="fs-4">Heart Attack Prediction</span>
+            </a>
+
+            <!-- <ul class="nav nav-pills"> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Code</a></li> -->
+                <!-- <li class="nav-item"><a href="#" class="nav-link">Code</a></li> -->
+            <!-- </ul> -->
+        </header>
+    </div>
+    <!-- Hero -->
+    <div class="container">
+        <div class="px-4 py-5 my-5 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" height="100" fill="currentColor" class="bi bi-balloon-heart-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386" />
+            </svg>
+            <h1 class="display-6 text-body-emphasis">Give you basic details below</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Our Machine Learning Algorithms is XGBoost, and we have trained our model with more
+                    than 10K training set.</p>
+                <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Input forms -->
+    <div class="container">
+        <form action="/predict" method="POST">
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Exercise hour in a week 🏋🏻</label>
+                        <input class="form-control" id="exampleInputEmail1" name="exercise" aria-describedby="emailHelp" placeholder="e.g. 0.5" required>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Do consume alcohol?</label>
+                        <select class="form-select" name="is_alcohol" id="exampleInputPassword1">
+                            <option value="1">yes</option>
+                            <option value="0">no</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Do Smoking 🚬</label>
+                        <select class="form-select" name="smoker" id="exampleInputPassword1">
+                            <option value="1">yes</option>
+                            <option value="0">no</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Age</label>
+                        <input class="form-control" name="age" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e.g. 40" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Heart Rate 💉</label>
+                        <input class="form-control" name="heart_rate" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e.g. 72" required>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Suffered from Diabetes</label>
+                        <select class="form-select" name="is_diabetic" id="exampleInputPassword1">
+                            <option value="1">yes</option>
+                            <option value="0">no</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Family having 🫀 Heart Problem background</label>
+                        <select class="form-select" name="family_heart_problem_background" id="exampleInputPassword1">
+                            <option value="1">yes</option>
+                            <option value="0">no</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="col-md">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Diet 👨🏻‍⚕️</label>
+                            <select class="form-select" name="diet" id="exampleInputPassword1">
+                                <option value="1">Healthy</option>
+                                <option value="-1">Unhealthy</option>
+                                <option value="0">Average</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                <label class="form-check-label" for="exampleCheck1">Providing all the information to the best of your knowledge</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-warning" id="predictButton">Predict</button>
+            </div>            
+        </form>
+    </div>
+    <!-- Footer -->
+    <div class="container">
+        <footer class="py-3 my-4">
+          <!-- <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+          </ul> -->
+          <p class="text-center text-body-secondary">© 2024 Heart Attack Prediction</p>
+        </footer>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
